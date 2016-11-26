@@ -15,4 +15,4 @@ RUN cd /transit-tracker/ && npm install
 
 EXPOSE 9000
 
-CMD ["cd /transit-tracker/build && npm run build && pushstate-server build"]
+CMD ["cd /transit-tracker && npm run build && pushstate-server build"]
