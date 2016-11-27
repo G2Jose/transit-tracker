@@ -7,7 +7,7 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 RUN sudo apt-get update && sudo apt-get install -y \
 	nodejs
 
-RUN npm install -g pushstate-server
+RUN sudo npm install -g pushstate-server
 
 RUN mkdir /transit-tracker
 COPY . /transit-tracker/
