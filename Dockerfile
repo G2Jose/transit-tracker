@@ -1,18 +1,25 @@
-FROM ubuntu:14.04
-MAINTAINER "George Jose" <george.jose.a+github@gmail.com>
+FROM alpine:latest
 
-RUN sudo apt-get update && sudo apt-get install -y \
-	curl
-RUN curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-RUN sudo apt-get update && sudo apt-get install -y \
+RUN apk update && apk add \
 	nodejs
 
-RUN sudo npm install -g pushstate-server
+RUN npm install -g \
+	pushstate-server \
+	yarn
 
-RUN mkdir /transit-tracker
-COPY . /transit-tracker/
-RUN cd /transit-tracker/ && npm install
+RUN mkdir /transit-tracker-packages
+
+COPY ./package.json /transit-tracker-packages/package.json
+RUN cd /transit-tracker-packages/ && yarn install
+
+COPY . /transit-tracker
+RUN rm -rf /transit-tracker/node_modules
+RUN mv /transit-tracker-packages/node_modules /transit-tracker/
+
+WORKDIR /transit-tracker
+
+RUN npm run build
 
 EXPOSE 9000
 
-CMD ["cd /transit-tracker && npm run build && pushstate-server build"]
+CMD ["pushstate-server", "build"]
