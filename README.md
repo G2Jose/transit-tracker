@@ -2,7 +2,7 @@
 
 ### A simple React app that shows locations of transit vehicles in real-time using the [Restbus API](http://restbus.info/).
 
-<button>Big Fat Button</button> 
+<img align="justify" src="https://github.com/G2Jose/transit-tracker/raw/master/media/screencast.gif" alt="demo">
 
 ## Running 
 
