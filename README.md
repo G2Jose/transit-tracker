@@ -1,6 +1,6 @@
 # Transit-Tracker 🚎
 
-### A simple React app that shows locations of transit vehicles in real-time using the [Restbus API](http://restbus.info/).
+### A simple React app that shows locations of transit vehicles in real-time using the [Restbus API](http://restbus.info/). [Live Demo](https://georgejose.com/projects/livetransit/map.html)
 
 <img align="justify" src="https://github.com/G2Jose/transit-tracker/raw/master/media/screencast.gif" alt="demo">
 
